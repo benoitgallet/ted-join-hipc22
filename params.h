@@ -10,7 +10,7 @@
 
 // Dimensionality used for the tensor cores, based on the dimensionality of the data.
 // Should fit the size of the matrices used by the tensor cores, depending on the precision and configuration.
-// Typically, the next multiple of 8 or 16 of INPUT_DATA_DIM.
+// Typically, the next multiple of 4 after INPUT_DATA_DIM.
 #define COMPUTE_DIM 32
 
 // Number of threads per block for the CUDA cores computation.
@@ -28,11 +28,13 @@
 //   32: single precision
 //   64: double precision
 // COMPUTE_PREC <= ACCUM_PREC
+// In this version of the algorithm, only 64 is supported for Tensor Cores.
 #define INPUT_DATA_PREC 64
 #define COMPUTE_PREC 64
 #define ACCUM_PREC 64
 
 // Add extra points at the end of the dataset to not get segmentation faults when filling tensor core fragments
+// Because only FP64 is supported, this value should not change and remain as 7.
 #define ADDITIONAL_POINTS 7
 
 // Amount of Insutrction Level Parallelism for the CUDA cores.
@@ -48,6 +50,8 @@
 #define VERBOSITY 1
 
 // Reorder the features of the data based on their variance.
+// Because this only improve performance, setting it to 0 will not change
+// the behavior of this algorithm. We keep this parameter for output reasons.
 #define REORDER_DIM_BY_VAR 1
 
 // Result array size (number of elements)
@@ -73,7 +77,9 @@
 #define EPSILON_ARG 2
 #define SEARCHMODE_ARG 3
 
+// CUDA cores
 #define SM_GPU 11
+
 // Compute multiple query points from a same cell, using a combination of tensor and CUDA cores
 #define SM_TENSOR_MQ_HYBRID 21
 
