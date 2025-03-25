@@ -4,7 +4,7 @@ Authors: Benoit Gallet and Michael Gowanlock
 
 Insitution: Northern Arizona University, *School of Informatics, Computing, and Cyber Systems*
 
-E-mails: <bg724@nau.edu> | <galletbenoit@microsoft.com>, <michael.gowanlock@nau.edu>
+E-mails: **<bg724@nau.edu> | <galletbenoit@microsoft.com>**, <michael.gowanlock@nau.edu>
 
 Corresponding publication:
 - Benoit Gallet and Michael Gowanlock. Leveraging GPU Tensor Cores for Double Precision Euclidean Distance Calculations, ***International Conference on High Performance Computing, Data, and Analytics (HiPC)***, 2022. [Article](https://doi.org/10.1109/HiPC56025.2022.00029)
@@ -81,3 +81,6 @@ The algorithm might output a lot of information during the computation. To only 
 ```sh
 ./main dataset epsilon compute_mode | grep "Result"
 ```
+
+## Notes
+The documentation inside of the code can be somewhat lacking at times, and the code can be confusing. Do not hesitate to contact the authors of this repo/code/article for further details: **<bg724@nau.edu> | <galletbenoit@microsoft.com>**, or <michael.gowanlock@nau.edu>.
